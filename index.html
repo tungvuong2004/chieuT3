@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Chat Server</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Enhanced Chat Server</h1>
+        <p>Chat with others, upload files, and share your thoughts!</p>
+    </header>
+    <section>
+        <h2>Chat with Others</h2>
+        <form action="/chat" method="POST">
+            <input type="text" name="username" placeholder="Enter your username" required>
+            <textarea name="message" placeholder="Type your message here..." required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <form action="/clear" method="POST">
+            <button type="submit" class="clear-chat">Clear Chat</button>
+        </form>
+        <div id="chat-messages">
+            <h3>Recent Messages</h3>
+            {{chat_messages}}
+        </div>
+    </section>
+    <section>
+        <h2>Upload Files</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+        </form>
+        <div id="uploaded-files">
+            <h3>Uploaded Files</h3>
+            {{uploaded_files}}
+        </div>
+    </section>
+</body>
+</html>
